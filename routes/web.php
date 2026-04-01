@@ -20,6 +20,14 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 });
 
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/add', [StudentController::class, 'showForm'])->name('student.add');
+    Route::post('/add', [StudentController::class, 'storeStudent'])->name('student.store');
+    Route::delete('/delete/{id}', [StudentController::class, 'deleteStudent'])
+    ->name('student.delete');
+
+});
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
