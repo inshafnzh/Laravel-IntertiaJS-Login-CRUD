@@ -76,7 +76,8 @@ const props = defineProps({
           
           <!-- Edit -->
           <Link
-            :href="`/students/${student.id}/edit`"
+            :href="`/edit/${student.id}`"
+            as="button"
             class="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded text-sm"
           >
             Edit

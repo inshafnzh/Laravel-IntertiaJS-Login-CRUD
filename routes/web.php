@@ -25,6 +25,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/add', [StudentController::class, 'storeStudent'])->name('student.store');
     Route::delete('/delete/{id}', [StudentController::class, 'deleteStudent'])
     ->name('student.delete');
+    Route::get('/edit/{id}', [StudentController::class, 'editStudent'])
+    ->name('student.edit');
+    Route::put('/update/{id}', [StudentController::class, 'updateStudent'])
+    ->name('student.update');
 
 });
 

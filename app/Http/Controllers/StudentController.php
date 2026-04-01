@@ -40,6 +40,19 @@ class StudentController extends Controller
         return redirect()->route('dashboard');
     }
 
+    public function editStudent($id) {
+        $student = DB::table('students')->find($id);
+        return Inertia::render('Student/Edit', compact('student'));
+    }
 
+    public function updateStudent(Request $request) {
+        DB::table('students')->where('id', $request->id)->update([
+            'name' => $request->name,
+            'age' => $request->age,
+            'status' => $request->status,
+        ]);
+
+        return redirect()->route('dashboard');
+    }
     
 }
